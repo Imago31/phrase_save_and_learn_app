@@ -70,32 +70,32 @@ request.onload = function() {
 }
 
 // send data
-const send_phrases = document.querySelector(".send_phrases");
-send_phrases.addEventListener('click',function(){
+// const send_phrases = document.querySelector(".send_phrases");
+// send_phrases.addEventListener('click',function(){
 
-    const ger = document.querySelector(".ger").value;
-    const rus = document.querySelector(".rus").value;
+//     const ger = document.querySelector(".ger").value;
+//     const rus = document.querySelector(".rus").value;
 
-    const newURL = requestURL + "?ger="+ ger + "&rus=" + rus;
+//     const newURL = requestURL + "?ger="+ ger + "&rus=" + rus;
     
-    request.open("GET", newURL,true);
-    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    request.send();
+//     request.open("GET", newURL,true);
+//     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//     request.send();
 
-    console.log('click');
+//     console.log('click');
     
-    request.onload = function () {
-        console.log(request.status);
-        if(request.status == 200){
-            document.querySelector(".ger").value = "";
-            document.querySelector(".rus").value = "";
-            const mess = document.createElement("div");
-            mess.classList.add("mess");
-            mess.innerHTML = "Added";
-            document.querySelector("body").prepend(mess)
-            setTimeout(function(){
-                mess.remove();
-            },1000)
-        }
-    }
-})
+//     request.onload = function () {
+//         console.log(request.status);
+//         if(request.status == 200){
+//             document.querySelector(".ger").value = "";
+//             document.querySelector(".rus").value = "";
+//             const mess = document.createElement("div");
+//             mess.classList.add("mess");
+//             mess.innerHTML = "Added";
+//             document.querySelector("body").prepend(mess)
+//             setTimeout(function(){
+//                 mess.remove();
+//             },1000)
+//         }
+//     }
+// })
