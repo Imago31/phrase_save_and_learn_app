@@ -9,7 +9,7 @@ request.send();
 
 request.onload = function() {
     const data = request.response;
-    console.log(data);
+    // console.log(data);
     const dataArray = Object.values(data);
     console.log(dataArray);
 
@@ -18,9 +18,9 @@ request.onload = function() {
     const info = document.querySelector(".info");
     const children = document.querySelector(".info").children;
     search_german.addEventListener('keyup',function(){
-        for(text2 of children){
-                console.log(text2)
-                text2.remove();
+        for(text of children){
+                // console.log(text2)
+                text.remove();
             }
         for(text of dataArray){
             if(text.ger.toLowerCase().includes(search_german.value.toLowerCase()) == true){
@@ -29,7 +29,6 @@ request.onload = function() {
                 resGer.classList.add('resGer');
               
                 const resRus = document.createElement('p');
-                // resRus.classList.add('resRus');
                 resRus.innerHTML = text.rus;
 
                 const resalts = document.createElement('div');
@@ -42,12 +41,12 @@ request.onload = function() {
 
     })
 
-    // search russion
+    // search russian
     const search_russian = document.querySelector(".search_russian");
     search_russian.addEventListener('keyup',function(){
-        for(text2 of children){
-                console.log(text2)
-                text2.remove();
+        for(text of children){
+                // console.log(text2)
+                text.remove();
             }
         for(text of dataArray){
             if(text.rus.toLowerCase().includes(search_russian.value.toLowerCase()) == true){
@@ -56,7 +55,6 @@ request.onload = function() {
                 resRus.classList.add('resRus');
               
                 const resGer = document.createElement('p');
-                // resGer.classList.add('resGer');
                 resGer.innerHTML = text.ger;
 
                 const resalts = document.createElement('div');

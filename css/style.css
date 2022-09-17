@@ -2,6 +2,10 @@
     margin: 0;
     padding: 0;
 }
+body{
+    background: url(../img/hd-wallpaper-ge843fe9ab_1920-min.jpg) center fixed;
+    background-size: cover;
+}
 .box{
     max-width: 600px;
     margin: auto;
