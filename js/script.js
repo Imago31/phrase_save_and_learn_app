@@ -13,59 +13,46 @@ request.onload = function() {
     const dataArray = Object.values(data);
     console.log(dataArray);
 
-    // search german
-    const search_german = document.querySelector(".search_german");
     const info = document.querySelector(".info");
     const children = document.querySelector(".info").children;
-    search_german.addEventListener('keyup',function(){
-        for(text of children){
-                // console.log(text2)
-                text.remove();
-            }
-        for(text of dataArray){
-            if(text.ger.toLowerCase().includes(search_german.value.toLowerCase()) == true){
-                const resGer = document.createElement('p');
-                resGer.innerHTML = text.ger;
-                resGer.classList.add('resGer');
-              
-                const resRus = document.createElement('p');
-                resRus.innerHTML = text.rus;
-
-                const resalts = document.createElement('div');
-                resalts.classList.add('resalts');
-                resalts.append(resGer);
-                resalts.append(resRus);
-                info.append(resalts);
-            }
-        }
-
-    })
 
     // search russian
     const search_russian = document.querySelector(".search_russian");
     search_russian.addEventListener('keyup',function(){
         for(text of children){
-                // console.log(text2)
                 text.remove();
             }
-        for(text of dataArray){
+        const newDataArraya = dataArray.map(function(text){
             if(text.rus.toLowerCase().includes(search_russian.value.toLowerCase()) == true){
-                const resRus = document.createElement('p');
-                resRus.innerHTML = text.rus;
-                resRus.classList.add('resRus');
-              
-                const resGer = document.createElement('p');
-                resGer.innerHTML = text.ger;
-
-                const resalts = document.createElement('div');
-                resalts.classList.add('resalts');
-                resalts.append(resGer);
-                resalts.append(resRus);
-                info.append(resalts);
+                return `
+                    <div class="resalts">
+                    <p class="resRus">${text.rus}</p>
+                    <p class="resNext">${text.ger}</p>
+                    </div>
+              `;
             }
-        }
-
+        })
+        info.innerHTML = newDataArraya.join("");
     })
+
+    // search german
+    const search_german = document.querySelector(".search_german");
+    search_german.addEventListener('keyup',function(){
+        for(text of children){
+                text.remove();
+            }
+        const newDataArraya = dataArray.map(function(text){
+            if(text.ger.toLowerCase().includes(search_german.value.toLowerCase()) == true){
+                return `
+                    <div class="resalts">
+                    <p class="resGer">${text.ger}</p>
+                    <p class="resNext">${text.rus}</p>
+                    </div>
+                `;
+            }
+        })
+        info.innerHTML = newDataArraya.join("");
+    });
 
 }
 

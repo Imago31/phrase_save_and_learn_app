@@ -40,6 +40,9 @@ body{
 .resGer{
     color: #FF4500;
 }
+.resNext{
+    color: black;
+}
 .form{
     max-width: 600px;
     margin: auto;
